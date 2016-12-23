@@ -1,0 +1,13 @@
+
+<% if @status==1 %>
+		if (!$('.div-main-task-check').is(':checked')) {
+			$('.div-main-task-check').attr('checked',"true");
+		}
+	
+<% else %>
+
+if ($('.div-main-task-check').is(':checked')) {
+			$('.div-main-task-check').removeAttr('checked');
+		}
+
+<% end %>

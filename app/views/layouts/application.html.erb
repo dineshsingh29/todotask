@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  
+    <% if user_signed_in? %>
+
+      		<div class="row div-header-class">
+
+          		<div class="col-lg-8">Welcome <%= current_user.name %> !!</div>
+          		<div class="col-lg-4">	
+          	
+          				<%= current_user.email %>
+          				<%= link_to "Log out", destroy_user_session_path,:method => :delete  %>
+          				
+
+          		
+          		</div>
+      </div>
+      <%end%>
+  				
+          
+  	
+
+ 
+
+    <%= yield %>
+  </body>
+</html>
+
+
+<style type="text/css">
+  
+  .div-header-class
+  {
+        background-color: antiquewhite;
+    height: 35px;
+  }
+
+</style>

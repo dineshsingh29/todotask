@@ -1,0 +1,36 @@
+	<% @task=task %>
+		<div class="col-lg-12">
+
+				<div class="row">
+					<% if @task.status==1 %>
+					<form action="/tasks/<%= @task.id %>" accept-charset="UTF-8" data-remote="true" method="put">
+					<input type="checkbox"  class="div-main-task-check" disabled="true" checked >
+					<% else %>
+					<input type="checkbox"  class="div-main-task-check" disabled="true">
+					<% end %>	
+					<input type="text" name="taks[task_text]" class="input-type-text"  placeholder="write task name" value="<%= @task.task_text %>">
+					</form>
+				</div>
+		</div>
+
+	<% @task.lists.each_with_index do |list,index| %>	
+		<div class="task-list-<%=index%>">
+			<form  action="/tasks/<%= @task.id %>/lists/<%= list.id %>" accept-charset="UTF-8" data-remote="true" method="put">
+					<div class="col-lg-12 div-list">
+						<% if @task.status==1 %>
+						   <input type="checkbox"   value="1" class="div-list-check" checked>	
+						   	<input type="hidden" name="list[status]" id="list_status" value="1" class="div-list-status">
+						<% else %>
+							 <input type="checkbox"   value="0" class="div-list-check">	
+							 	<input type="hidden" name="list[status]" id="list_status" value="0" class="div-list-status">
+						<% end %>
+						<input type="hidden" name="list[task_id]" id="list_task_id" value="<%= @task.id %>" >
+						
+						<input type="hidden" name="list[class]" id="list_class" value="task-list-<%= index %>">
+						<textarea placeholder="write a note" class="div-list-text" name="list[list_text]" id="list_list_text" ><%= list.list_text %></textarea>
+						 
+					</div>
+				</form>
+		</div>
+
+	<% end %>	

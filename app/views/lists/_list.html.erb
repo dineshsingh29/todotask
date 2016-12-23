@@ -1,0 +1,13 @@
+<% @task=renderdiv %>		
+<div class="task-list-<%= @task.lists.count%>">
+<%= form_for [@task, List.new], :remote=>true  do |f| %>
+			<div class="col-lg-12 div-list">
+				<input type="checkbox"   value="0" class="div-list-check">	
+				<input type="hidden" name="list[task_id]" id="list_task_id" value="<%= @task.id %>" >
+				<input type="hidden" name="list[status]" id="list_status" value="0" class="div-list-status">	
+				<input type="hidden" name="list[class]" id="list_class" value="task-list-<%= @task.lists.count%>">
+				<%= f.text_area :list_text, placeholder: "write a note",class: 'div-list-text' %><br/>
+				 
+			</div>
+<% end %>
+</div>

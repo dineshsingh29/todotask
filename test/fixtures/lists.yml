@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  list_text: MyText
+  task_id: 1
+  status: 1
+  listable_id: 1
+  listable_type: 1
+
+two:
+  list_text: MyText
+  task_id: 1
+  status: 1
+  listable_id: 1
+  listable_type: 1

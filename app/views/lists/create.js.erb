@@ -1,0 +1,24 @@
+<% if @result==1 %>
+
+<% if @renderdiv=='Task' %>
+$('.<%= @list_class %>').find('form').attr('action',"/tasks/<%= @task.id %>/lists/<%=@list.id%>");
+$('.<%= @list_class %>').find('form').attr('method',"put");
+$('.div-main-task').append("<%= j(render partial: 'list', :locals=>{:renderdiv=>@task}) %>");
+
+<% if @status==1 %>
+		if (!$('.div-main-task-check').is(':checked')) {
+			$('.div-main-task-check').click();
+		}
+	
+<% else %>
+
+if ($('.div-main-task-check').is(':checked')) {
+			$('.div-main-task-check').click();
+		}
+
+<% end %>
+
+<% end %>
+
+
+<% end %>
